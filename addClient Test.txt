@@ -1,0 +1,39 @@
+void Agency::AddClient(Agency agency)
+  {
+	  string clientname, street, zipcode, city,floor;
+	  int nif;
+	  short door, familySize;
+	  Address new_address;
+	  Client new_client;
+	  vector<Client> client_list;
+
+	  cout << "Client's Name:  ";
+	  getline (cin, clientname);
+
+	  cout << "NIF: ";
+	  cin >> nif;
+
+	  cout << "Number of Family Members: ";
+	  cin >> familySize;
+
+	  cout << "Address: " << endl;
+	  cout << " > Street: ";
+	  getline(cin, street);
+	  cout << " > Door: ";
+	  cin >> door;
+	  cout << " > Floor (If inexistent, type '-'): ";
+	  cin >> floor;
+	  cout << " > Zipcode: ";
+	  getline(cin, zipcode);
+	  cout << " > City: ";
+	  getline(cin, city);
+	  
+	  new_address = Address(street, door, floor, zipcode, city);
+	  new_client = Client(clientname, nif, familySize, new_address);
+
+	  //clients.push_back(new_client);
+	  client_list = agency.getClients();
+	  client_list.push_back(new_client);
+	  agency.setClients(client_list);
+
+  }
